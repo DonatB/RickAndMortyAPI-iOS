@@ -147,9 +147,9 @@
 		A8F6AC4D295F294D008E4392 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A8F6AC52295F2995008E4392 /* RMCharacter.swift */,
 				A8F6AC4E295F297E008E4392 /* RMLocation.swift */,
 				A8F6AC50295F298B008E4392 /* RMEpisode.swift */,
-				A8F6AC52295F2995008E4392 /* RMCharacter.swift */,
 				A88A8A1D2963325C00D5C863 /* RMOrigin.swift */,
 				A88A8A1F296332DE00D5C863 /* RMSingleLocation.swift */,
 				A88A8A212963339A00D5C863 /* RMCharacterStatus.swift */,
