@@ -18,7 +18,7 @@ final class RMService {
     
     /// Send Rick and Morty API Call
     /// - Parameters:
-    ///   - request: Reuqest instance
+    ///   - request: Request instance
     ///   - completion: Callback with data or error
     public func execute(_ request: RMRequest, completion: @escaping () -> Void) {
         
