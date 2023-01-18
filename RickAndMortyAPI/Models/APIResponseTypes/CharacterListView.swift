@@ -21,6 +21,8 @@ final class CharacterListView: UIView {
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isHidden = true
         collectionView.alpha = 0
@@ -36,13 +38,13 @@ final class CharacterListView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .systemMint
-        addSubview(spinner)
+        addSubviews(collectionView, spinner)
         
         configureConstraints()
         
         spinner.startAnimating()
         viewModel.fetchCharacters()
+        setupCollectionView()
     }
     
     required init?(coder: NSCoder) {
@@ -54,9 +56,26 @@ final class CharacterListView: UIView {
             spinner.widthAnchor.constraint(equalToConstant: 100),
             spinner.heightAnchor.constraint(equalToConstant: 100),
             spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
-            spinner.centerYAnchor.constraint(equalTo: centerYAnchor)
+            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
             
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    private func setupCollectionView() {
+        collectionView.dataSource = viewModel
+        collectionView.delegate = viewModel
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.spinner.stopAnimating()
+            self.collectionView.isHidden = false
+            
+            UIView.animate(withDuration: 0.4, delay: 0) {
+                self.collectionView.alpha = 1
+            }
+        })
     }
     
 }

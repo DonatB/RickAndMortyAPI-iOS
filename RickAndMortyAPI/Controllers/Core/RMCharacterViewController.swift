@@ -22,6 +22,7 @@ final class RMCharacterViewController: UIViewController {
 }
 
 extension RMCharacterViewController {
+    
     func configureCharacterListView() {
         view.addSubview(characterListView)
         NSLayoutConstraint.activate([
@@ -31,4 +32,5 @@ extension RMCharacterViewController {
             characterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
 }
