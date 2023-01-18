@@ -18,8 +18,8 @@ final class RMRequest {
     
     /// Desired endpoint
     private let endpoint: RMEndpoint
-    /// Path components for API, if any. Also using sets instead of arrays as we do not want repeating paths aka same paths over and over.
-    private let pathComponents: Set<String>
+    /// Path components for API, if any
+    private let pathComponents: [String]
     /// Query arguments for API, if any
     private let queryParameters: [URLQueryItem]
     
@@ -64,9 +64,13 @@ final class RMRequest {
     ///   - endpoint: target endpoint
     ///   - pathComponents: collection of Path components
     ///   - queryParameters: collection of Query parameters
-    init(endpoint: RMEndpoint, pathComponents: Set<String> = [], queryParameters: [URLQueryItem] = []) {
+    init(endpoint: RMEndpoint, pathComponents: [String] = [], queryParameters: [URLQueryItem] = []) {
         self.endpoint = endpoint
         self.pathComponents = pathComponents
         self.queryParameters = queryParameters
     }
+}
+
+extension RMRequest {
+    static let listCharactersRequests = RMRequest(endpoint: .character)
 }
