@@ -8,14 +8,13 @@
 import Foundation
 import UIKit
 
-final class CharacterListViewViewModel: NSObject {
+final class RMCharacterListViewViewModel: NSObject {
     
     func fetchCharacters() {
         RMService.shared.execute(.listCharactersRequests, expecting: RMGetAllCharactersResponse.self) { result in
             switch result {
             case .success(let model):
-                print("Total: " + String(model.info.count))
-                print("Page result count: " + String(model.results.count))
+                print("Total: " + String(model.results.first?.image ?? "no image"))
             case .failure(let error):
                 print(String(describing: error))
             }
@@ -24,15 +23,16 @@ final class CharacterListViewViewModel: NSObject {
     
 }
 
-extension CharacterListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension RMCharacterListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemMint
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier , for: indexPath) as? RMCharacterCollectionViewCell else { fatalError("Unsupported cell") }
+        let viewModel = RMCharacterCollectionViewCellViewModel(characterName: "Donat", characterStatus: .alive, characterImageUrl: URL(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"))
+        cell.configure(with: viewModel)
         return cell
     }
     
