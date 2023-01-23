@@ -14,25 +14,27 @@ final class RMCharacterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        title = "Characters"
         configureCharacterListView()
     }
-
-}
-
-extension RMCharacterViewController: RMCharacterListViewDelegate {
     
     func configureCharacterListView() {
+        view.backgroundColor = .systemBackground
+        title = "Characters"
         characterListView.delegate = self
         view.addSubview(characterListView)
+        
         NSLayoutConstraint.activate([
             characterListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             characterListView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             characterListView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             characterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+        
     }
+
+}
+
+extension RMCharacterViewController: RMCharacterListViewDelegate {
     
     //MARK: - CharacterListViewDelegate
     func rmCharacterListView(_ characterListView: RMCharacterListView, didSelectCharacter character: RMCharacter) {

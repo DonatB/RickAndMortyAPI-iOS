@@ -56,7 +56,7 @@ final class RMCharacterListViewViewModel: NSObject {
     }
     
     public var shouldShowLoadMoreIndicator: Bool {
-        return false
+        return apiInfo?.next != nil
     }
     
 }
