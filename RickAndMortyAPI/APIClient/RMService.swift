@@ -47,8 +47,6 @@ final class RMService {
             } catch {
                 completion(.failure(error))
             }
-            
-            
         }
         task.resume()
     }
