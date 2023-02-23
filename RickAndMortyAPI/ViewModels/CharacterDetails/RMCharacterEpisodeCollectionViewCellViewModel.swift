@@ -12,5 +12,6 @@ final class RMCharacterEpisodeCollectionViewCellViewModel {
     
     init(episodeDataUrl: URL?) {
         self.episodeDataUrl = episodeDataUrl
+        
     }
 }

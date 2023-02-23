@@ -12,6 +12,7 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.backgroundColor = .quaternarySystemFill
     }
     
     required init?(coder: NSCoder) {
