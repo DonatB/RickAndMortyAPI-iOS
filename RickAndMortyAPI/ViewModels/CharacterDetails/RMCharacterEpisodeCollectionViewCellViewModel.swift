@@ -15,17 +15,18 @@ protocol RMEpisodeDataRender {
 
 final class RMCharacterEpisodeCollectionViewCellViewModel {
     private let episodeDataUrl: URL?
+    
     private var isFetching = false
     private var dataBlock: ((RMEpisodeDataRender) -> Void)?
     
     private var episode: RMEpisode? {
         didSet {
-            guard let model = episode else { return }
+            guard let model = episode else {
+                return
+            }
             dataBlock?(model)
         }
     }
-    
-    //MARK: - Init
     
     init(episodeDataUrl: URL?) {
         self.episodeDataUrl = episodeDataUrl
@@ -39,20 +40,23 @@ final class RMCharacterEpisodeCollectionViewCellViewModel {
     
     public func fetchEpisode() {
         guard !isFetching else {
+            print("Already fetched that episode.")
             if let model = episode {
-                dataBlock?(model)
+                self.dataBlock?(model)
             }
             return
-            
         }
-        guard let url = episodeDataUrl, let request = RMRequest(url: url) else { return }
-        
+        guard let url = episodeDataUrl,
+              let request = RMRequest(url: url) else {
+            return
+        }
         isFetching = true
         
         RMService.shared.execute(request, expecting: RMEpisode.self) { [weak self] result in
-            guard let self else { return }
+            guard let self = self else { return }
             switch result {
             case .success(let model):
+                print(String(describing: model.id))
                 DispatchQueue.main.async {
                     self.episode = model
                 }
@@ -60,6 +64,6 @@ final class RMCharacterEpisodeCollectionViewCellViewModel {
                 print(String(describing: failure))
             }
         }
+        
     }
-    
 }
