@@ -15,6 +15,18 @@ final class RMCharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCharacterListView()
+        addSearchButton()
+    }
+    
+    private func addSearchButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
+    }
+    
+    @objc private func didTapSearch() {
+        print("Did TEP SURCH")
+        let vc = RMSearchViewViewController(config: RMSearchViewViewController.Config(type: .character))
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func configureCharacterListView() {

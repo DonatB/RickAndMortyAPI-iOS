@@ -15,6 +15,15 @@ final class RMEpisodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCharacterListView()
+        addSearchButton()
+    }
+    
+    private func addSearchButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
+    }
+    
+    @objc private func didTapSearch() {
+        print("Did TEP SURCH")
     }
     
     func configureCharacterListView() {

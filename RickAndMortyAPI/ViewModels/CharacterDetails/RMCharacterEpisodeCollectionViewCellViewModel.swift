@@ -19,6 +19,8 @@ final class RMCharacterEpisodeCollectionViewCellViewModel: Hashable, Equatable {
     private var isFetching = false
     private var dataBlock: ((RMEpisodeDataRender) -> Void)?
     
+    public let borderColor: UIColor
+    
     private var episode: RMEpisode? {
         didSet {
             guard let model = episode else {
@@ -28,8 +30,9 @@ final class RMCharacterEpisodeCollectionViewCellViewModel: Hashable, Equatable {
         }
     }
     
-    init(episodeDataUrl: URL?) {
+    init(episodeDataUrl: URL?, borderColor: UIColor = .systemMint) {
         self.episodeDataUrl = episodeDataUrl
+        self.borderColor = borderColor
     }
     
     //MARK: - Public

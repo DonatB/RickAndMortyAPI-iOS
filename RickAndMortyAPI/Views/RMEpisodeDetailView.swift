@@ -7,10 +7,12 @@
 
 import UIKit
 
-class RMEpisodeDetailView: UIView {
+final class RMEpisodeDetailView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .systemPink
     }
     
     required init?(coder: NSCoder) {
