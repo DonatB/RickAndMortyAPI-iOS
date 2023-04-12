@@ -31,6 +31,7 @@ final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailView
         view.backgroundColor = .systemBackground
         title = "Episode"
         view.addSubview(detailView)
+        addConstraints()
         
         viewModel.delegate = self
         viewModel.fetchEpisodeData()
