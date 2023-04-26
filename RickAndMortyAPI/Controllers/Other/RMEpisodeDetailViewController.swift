@@ -32,6 +32,7 @@ final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailView
         title = "Episode"
         view.addSubview(detailView)
         addConstraints()
+        detailView.delegate = self
         
         viewModel.delegate = self
         viewModel.fetchEpisodeData()
@@ -55,6 +56,18 @@ final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailView
     //MARK: - Delegate
     func didFetchEpisodeDetails() {
         detailView.configure(with: viewModel)
+    }
+    
+}
+
+//MARK: - RMEpisodeDetailViewDelegate Implementation
+extension RMEpisodeDetailViewController: RMEpisodeDetailViewDelegate {
+    
+    func rmEpisodeDetailsViews(_ detailView: RMEpisodeDetailView, didSelect character: RMCharacter) {
+        let vc = RMCharacterDetailViewController(viewModel: .init(character: character))
+        vc.title = character.name
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
