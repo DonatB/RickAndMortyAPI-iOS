@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A811D1F32A0261FA00994136 /* RMSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A811D1F22A0261FA00994136 /* RMSettingsView.swift */; };
 		A8495CEC29BB3E3700DEF451 /* RMEpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8495CEB29BB3E3700DEF451 /* RMEpisodeListView.swift */; };
 		A8495CEE29BB411D00DEF451 /* RMEpisodeListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8495CED29BB411D00DEF451 /* RMEpisodeListViewViewModel.swift */; };
 		A8495CF029BB6C4F00DEF451 /* RMGetAllEpisodesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8495CEF29BB6C4F00DEF451 /* RMGetAllEpisodesResponse.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A811D1F22A0261FA00994136 /* RMSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSettingsView.swift; sourceTree = "<group>"; };
 		A8495CEB29BB3E3700DEF451 /* RMEpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEpisodeListView.swift; sourceTree = "<group>"; };
 		A8495CED29BB411D00DEF451 /* RMEpisodeListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEpisodeListViewViewModel.swift; sourceTree = "<group>"; };
 		A8495CEF29BB6C4F00DEF451 /* RMGetAllEpisodesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMGetAllEpisodesResponse.swift; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A811D1F12A0261D800994136 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				A811D1F22A0261FA00994136 /* RMSettingsView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		A8495CEA29BB3E2100DEF451 /* Episode */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +267,7 @@
 		A8F6AC48295F28F2008E4392 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A811D1F12A0261D800994136 /* SwiftUI */,
 				A8F912D029E6CCEC000671E6 /* EpisodeDetails */,
 				A8495CEA29BB3E2100DEF451 /* Episode */,
 				A861902629A66E10004715AB /* CharacterDetails */,
@@ -436,6 +447,7 @@
 				A8F6AC5A295F29EE008E4392 /* RMEpisodeViewController.swift in Sources */,
 				A8F6AC34295F268C008E4392 /* AppDelegate.swift in Sources */,
 				A8592F4E2A010E42007A3398 /* RMSettingsCellViewModel.swift in Sources */,
+				A811D1F32A0261FA00994136 /* RMSettingsView.swift in Sources */,
 				A8F6AC51295F298B008E4392 /* RMEpisode.swift in Sources */,
 				A861902829A66E89004715AB /* RMCharacterPhotoCollectionViewCell.swift in Sources */,
 				A861903329A66F18004715AB /* RMCharacterEpisodeCollectionViewCellViewModel.swift in Sources */,
